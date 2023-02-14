@@ -1,0 +1,13 @@
+{
+    "age": 24,
+    "weight": 83.0,
+    "height": 193,
+    "gender": "Male",
+    "sport_type": "Gym Workout \ud83c\udfcb\ufe0f ",
+    "goal": [
+        "Gain Muscle ",
+        "Improve Flexibility"
+    ],
+    "health_problems": "I have gluten intolorance.",
+    "additional_info": "I want to lose 3 kg"
+}
