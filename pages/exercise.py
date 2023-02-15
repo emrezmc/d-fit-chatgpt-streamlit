@@ -21,7 +21,7 @@ st.write("Your bmi is " + str(round(bmi, 2)))
 
 col1, col2, col3 = st.columns(3)
 with col1:
-    st.write('How many days do you want to workout ?')
+    st.write('**How many days do you want to workout ?**')
     num_days = st.slider('', 1, 7, 1, label_visibility="collapsed")
     
 if st.button('Give my exercise plan'):
