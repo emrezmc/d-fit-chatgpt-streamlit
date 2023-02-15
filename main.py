@@ -1,17 +1,28 @@
 import streamlit as st
 from utils import *
 
-
 st.set_page_config(
     page_title="D-Fit",
     page_icon="🏋️",
+    layout='wide'
 )
 
-
-
+st.markdown(
+    """
+    <style>
+    [data-testid="stSidebar"][aria-expanded="true"] > div:first-child{
+        width: 250px;
+    }
+    [data-testid="stSidebar"][aria-expanded="false"] > div:first-child{
+        width: 250px;
+        margin-left: -250px;
+    }
+     
+    """,
+    unsafe_allow_html=True,
+)
 
 st.markdown("<h1 style='text-align: center;background-color: #0074D9;'>D-Fit </h1>", unsafe_allow_html=True)
-
 st.title("Personal Informations")
 
 age = st.number_input("Enter your age", value=18, min_value=1, max_value=80)
@@ -40,8 +51,11 @@ dictionary = {'age':age,
 'additional_info': additional_info}
 
 
-#bmi = weight / (height/100)**2
-submit_button(dictionary)
+col1, col2, col3 = st.columns(3)
+with col1:
+    diet_button(dictionary)
+with col2:
+    exercise_button(dictionary)
 
 
 

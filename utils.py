@@ -3,11 +3,17 @@ import streamlit as st
 from streamlit.components.v1 import html
 import json
 
-def submit_button(dictionary):
-    if st.button("Submit"):
+def diet_button(dictionary):
+    if st.button("Give Diet Program"):
     # Set the query parameters to include the name
         write_json(dictionary)
         nav_page('diet')
+
+def exercise_button(dictionary):
+    if st.button("Give Exercise Program"):
+    # Set the query parameters to include the name
+        write_json(dictionary)
+        nav_page('exercise')
 
 def write_json(dictionary):
     json_object = json.dumps(dictionary, indent=4)
