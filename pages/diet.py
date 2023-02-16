@@ -14,7 +14,7 @@ with open('information.json', 'r') as openfile:
 
 goal = " and ".join(dictionary['goal'])
 
-prompt = f"I want a monday to sunday weekly diet program, only give me program don't give any advice. \
+prompt = f"I want a monday to sunday weekly diet program, only give me program don't give any advice. Just give me day of week and meal. \
             I am {dictionary['age']} years old. \
             My weight {dictionary['weight']} kilogram. \
             My height is {dictionary['height']} cm. \
@@ -23,8 +23,10 @@ prompt = f"I want a monday to sunday weekly diet program, only give me program d
             I have some health problems like {dictionary['health_problems']}\
             In addition, {dictionary['additional_info']}"
 
+
 with st.spinner(text="In progress..."):
     cevap = ask(prompt)
+    cevap = "Monday" + cevap.split('Monday',1)[1]
     menu_dict = {}
     for day_menu in cevap.split('\n\n'):
         lines = day_menu.split('\n')

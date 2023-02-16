@@ -1,10 +1,13 @@
 {
-    "age": 18,
-    "weight": 50.0,
-    "height": 160,
+    "age": 44,
+    "weight": 84.0,
+    "height": 178,
     "gender": "Male",
     "sport_type": "Home Workout \ud83e\uddd8",
-    "goal": [],
+    "goal": [
+        "Lose Weight",
+        "Improve Flexibility"
+    ],
     "health_problems": "",
-    "additional_info": ""
+    "additional_info": "I want to lose 6 kilos."
 }

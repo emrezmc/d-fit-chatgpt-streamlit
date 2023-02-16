@@ -26,7 +26,7 @@ with col1:
     
 if st.button('Give my exercise plan'):
     with st.spinner(text="In progress..."):
-        prompt = f" Can you give me workout program that monday to sunday for {dictionary['sport_type']} \
+        prompt = f" Can you give me workout program that monday to sunday with rest days for {dictionary['sport_type']}, give reps with their set please \
                 Please just give me the program, not write me anything without program.Next to each move give a youtube link showing the move. \
                 I want to workout {num_days} days in a week. \
                 I am {dictionary['age']} years old. \
