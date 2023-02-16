@@ -1,0 +1,41 @@
+Monday: 
+Breakfast: Oatmeal with banana and almond butter 
+Lunch: Grilled chicken breast with steamed vegetables 
+Dinner: Baked salmon with quinoa and steamed broccoli 
+Snack: Greek yogurt with fresh berries 
+
+Tuesday: 
+Breakfast: Scrambled eggs with spinach and mushrooms 
+Lunch: Tuna salad with whole grain crackers 
+Dinner: Baked sweet potato with black beans and grilled vegetables 
+Snack: Smoothie with almond milk, banana and almond butter 
+
+Wednesday: 
+Breakfast: Avocado toast with poached egg 
+Lunch: Grilled turkey wrap with lettuce, tomato and hummus 
+Dinner: Baked cod with roasted potatoes and steamed green beans 
+Snack: Apple slices with peanut butter 
+
+Thursday: 
+Breakfast: Oatmeal with banana and walnuts 
+Lunch: Grilled chicken sandwich with lettuce and tomato 
+Dinner: Baked salmon with quinoa and steamed vegetables 
+Snack: Greek yogurt with fresh berries 
+
+Friday: 
+Breakfast: Scrambled eggs with spinach and mushrooms 
+Lunch: Tuna salad with whole grain crackers 
+Dinner: Baked sweet potato with black beans and grilled vegetables 
+Snack: Smoothie with almond milk, banana and almond butter 
+
+Saturday: 
+Breakfast: Avocado toast with poached egg 
+Lunch: Grilled turkey wrap with lettuce, tomato and hummus 
+Dinner: Baked cod with roasted potatoes and steamed green beans 
+Snack: Apple slices with peanut butter 
+
+Sunday: 
+Breakfast: Oatmeal with banana and walnuts 
+Lunch: Grilled chicken sandwich with lettuce and tomato 
+Dinner: Baked salmon with quinoa and steamed vegetables 
+Snack: Greek yogurt with fresh berries

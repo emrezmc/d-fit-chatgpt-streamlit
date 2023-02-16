@@ -1,7 +1,7 @@
+import json
 import openai
 import streamlit as st
 from streamlit.components.v1 import html
-import json
 
 def diet_button(dictionary):
     if st.button("Give Diet Program"):
@@ -17,13 +17,11 @@ def exercise_button(dictionary):
 
 def write_json(dictionary):
     json_object = json.dumps(dictionary, indent=4)
-    
-    # Writing to sample.json
     with open("information.json", "w") as outfile:
         outfile.write(json_object)
 
 def ask(question):
-    openai.api_key = ('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')
+    openai.api_key = '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'
     response = openai.Completion.create(
         prompt=question,
         model="text-davinci-003",
@@ -59,3 +57,4 @@ def nav_page(page_name, timeout_secs=3):
         </script>
     """ % (page_name, timeout_secs)
     html(nav_script)
+    
