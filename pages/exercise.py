@@ -1,13 +1,18 @@
-import streamlit as st
 import json
-from utils import *
+import streamlit as st
+from utils import ask
 import pandas as pd
+import requests
 
 st.set_page_config(
     page_title="D-Fit",
     page_icon="🏋️",
     layout='wide'
 )
+
+loc_data = pd.read_csv('il_ilce.csv')
+api_key = "AIzaSyAAQwxOV2HLs28y4ereMKYddQwIJLcoQZg"
+base_url_detail = "https://maps.googleapis.com/maps/api/place/details/json"
 
 with open('information.json', 'r') as openfile:
     dictionary = json.load(openfile)
@@ -22,7 +27,7 @@ st.write("Your bmi is " + str(round(bmi, 2)))
 col1, col2, col3 = st.columns(3)
 with col1:
     st.write('**How many days do you want to workout ?**')
-    num_days = st.slider('', 1, 7, 1, label_visibility="collapsed")
+    num_days = st.slider('*', 1, 7, 1, label_visibility="collapsed")
     
 if st.button('Give my exercise plan'):
     with st.spinner(text="In progress..."):
@@ -39,3 +44,64 @@ if st.button('Give my exercise plan'):
         cevap = ask(prompt)
         st.write(cevap)
 
+st.write('**Find closest sport center:**')
+column_1, column_2, column_3 = st.columns(3, gap='medium')
+with column_1:
+    sehirler = loc_data.il.unique().tolist()
+    selected_city = st.selectbox("City", sehirler)
+with column_2:
+    ilceler = loc_data[loc_data.il == selected_city]['ilçe'].unique().tolist()
+    selected_county = st.selectbox("District", ilceler)
+with column_3:
+    mahalleler = loc_data[(loc_data.il == selected_city) & (loc_data['ilçe']== selected_county)]["Mahalle"].unique().tolist()
+    selected_mahalle = st.selectbox('Neighborhood', mahalleler)
+
+query = selected_city + selected_county + selected_mahalle
+selected_search = dictionary['sport_type'].split()[0]
+
+if selected_search == 'Outdoor':
+    selected_search = st.selectbox('spor place', ['Basketbol', 'Yüzme havuzu', 'Futbol', 'Tenis', 'Yelken', 'Koşu'])
+
+if st.button('Show'):
+    url = "https://maps.googleapis.com/maps/api/place/findplacefromtext/json"
+    params = {
+        'input' : query,
+        'inputtype': 'textquery',
+        'fields': 'name,geometry',
+        'key' : api_key
+    }
+    response = requests.get(url, params=params)
+    result = response.json()
+    loc = result["candidates"][0]['geometry']['location']
+    lat, lng = loc['lat'], loc['lng']
+
+    url_near = "https://maps.googleapis.com/maps/api/place/nearbysearch/json"
+    params_near = {
+        'location': f"{lat} {lng}",
+        'keyword': selected_search,
+        'type': 'gym|health|establishment',
+        'rankby': 'distance',
+        'key': api_key
+    }
+    response = requests.get(url_near, params=params_near)
+
+    near_result = response.json()
+    results = near_result['results'][:5]
+    map_links = []
+    for result in results:
+        params_detail = {
+        "place_id" : result["place_id"],
+        'field' : "url",
+        "key" : api_key
+        }
+        detail_response = requests.get(base_url_detail, params = params_detail)
+        detail = detail_response.json()
+        map_links.append(detail["result"]["url"])    
+    for i, res in enumerate(results):
+        column_1, column_2, column_3 = st.columns(3)
+        with column_1:
+            st.write(res["name"])
+        with column_2:
+            st.write(map_links[i])
+        with column_3:
+            st.write(res["rating"])
