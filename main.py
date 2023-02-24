@@ -32,7 +32,10 @@ height = st.number_input("Enter your height (in cm)", value=160, min_value=1, ma
 gender = st.selectbox("Select your gender", options=["Male", "Female", "Other"])
 sport_type = st.selectbox("Select your workout place",
                 options=["Home Workout 🧘", "Gym Workout 🏋️ ", "Outdoor Workout 🚣‍♀️ 🏊"])
-
+level_type = st.selectbox("Choose your level ",
+                options=["Beginner  (I just started doing sports or haven't been doing sports for a long time and I don't have an athlete background.)",
+                          "Intermediate (It has always been sports in some way in my life. I exercise, although not regularly.) ", 
+                          "Advanced (I have been playing sports for a long time or I am a professional athlete in a sport)"])
 goal = st.multiselect("What is your goal ? ", options=["Lose Weight",
 "Gain Weight" ,
 "Gain Muscle ",
@@ -51,7 +54,8 @@ dictionary = {'age':age,
 'sport_type':sport_type,
 'goal': goal,
 'health_problems': health_problems,
-'additional_info': additional_info}
+'additional_info': additional_info,
+'level_type':level_type}
 
 
 col1, col2, col3 = st.columns(3)
