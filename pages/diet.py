@@ -14,7 +14,7 @@ with open('information.json', 'r') as openfile:
 
 goal = " and ".join(dictionary['goal'])
 
-prompt = f"I want a monday to sunday weekly diet program, only give me program don't give any advice.\
+prompt = f"I want a monday to sunday weekly diet program, only give me diet program don't give any advice.\
             In addition, please write amounts of foods users sould eat next to them. \
             I am {dictionary['age']} years old. \
             My weight {dictionary['weight']} kilogram. \

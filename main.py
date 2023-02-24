@@ -31,7 +31,7 @@ weight = st.number_input("Enter your weight (in kg)", value=50.0,
 height = st.number_input("Enter your height (in cm)", value=160, min_value=1, max_value=300)
 gender = st.selectbox("Select your gender", options=["Male", "Female", "Other"])
 sport_type = st.selectbox("Select your workout place",
-                options=["Home Workout 🧘", "Gym Workout 🏋️ ", "Outdoor 🚣‍♀️ 🏊"])
+                options=["Home Workout 🧘", "Gym Workout 🏋️ ", "Outdoor Workout 🚣‍♀️ 🏊"])
 
 goal = st.multiselect("What is your goal ? ", options=["Lose Weight",
 "Gain Weight" ,

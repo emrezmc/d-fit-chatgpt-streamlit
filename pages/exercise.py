@@ -31,16 +31,20 @@ with col1:
     
 if st.button('Give my exercise plan'):
     with st.spinner(text="In progress..."):
-        prompt = f" Can you give me workout program that monday to sunday with rest days for {dictionary['sport_type']}, give reps with their set please \
-                Please just give me the program, not write me anything without program.Next to each move give a youtube link showing the move. \
-                I want to workout {num_days} days in a week. \
-                I am {dictionary['age']} years old. \
-                My weight {dictionary['weight']} kilogram. \
-                My height is {dictionary['height']} cm. \
-                My gender is {dictionary['gender']}.\
-                I want to {goal}. \
-                I have some health problems like {dictionary['health_problems']}.\
-                In addition, {dictionary['additional_info']}."
+        prompt = f"""
+                Can you give me workout program that monday to sunday with rest days for {dictionary['sport_type']}, give reps with their set please.
+                Please just give me the program, not write me anything without program.
+                Paying attention to regional muscle groups (just working one major muscle and one minor muscle group per day)
+                Each day begins with warm-up exercises. 
+                I want to workout {num_days} days in a week. 
+                I am {dictionary['age']} years old.
+                My weight {dictionary['weight']} kilogram.
+                My height is {dictionary['height']} cm. 
+                My gender is {dictionary['gender']}.
+                I want to {goal}.
+                I have some health problems like {dictionary['health_problems']}.
+                In addition, {dictionary['additional_info']}.
+                """
         cevap = ask(prompt)
         st.write(cevap)
 
@@ -96,7 +100,8 @@ if st.button('Show'):
         }
         detail_response = requests.get(base_url_detail, params = params_detail)
         detail = detail_response.json()
-        map_links.append(detail["result"]["url"])    
+        map_links.append(detail["result"]["url"])
+        
     for i, res in enumerate(results):
         column_1, column_2, column_3 = st.columns(3)
         with column_1:
