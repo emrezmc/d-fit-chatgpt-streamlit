@@ -28,11 +28,16 @@ col1, col2, col3 = st.columns(3)
 with col1:
     st.write('**How many days do you want to workout ?**')
     num_days = st.slider('*', 1, 7, 1, label_visibility="collapsed")
-    
+
+selected_search = dictionary['sport_type'].split()[0]
+if selected_search == 'Outdoor':
+        selected_sport_type = st.multiselect('Sport type', ['Basketball', 'Swimming', 'Soccer', 'Tennis', 'Sailing', 'Running'])
+
 if st.button('Give my exercise plan'):
     with st.spinner(text="In progress..."):
         prompt = f"""
-                Can you give me workout program that monday to sunday with rest days for {dictionary['sport_type']}, give reps with their set please.
+                Can you give me workout program that monday to sunday with rest days for {dictionary['sport_type']},
+                I'm {dictionary['level_type']}  give reps with their set please.
                 Please just give me the program, not write me anything without program.
                 Paying attention to regional muscle groups (just working one major muscle and one minor muscle group per day)
                 Each day begins with warm-up exercises. 
@@ -45,10 +50,11 @@ if st.button('Give my exercise plan'):
                 I have some health problems like {dictionary['health_problems']}.
                 In addition, {dictionary['additional_info']}.
                 """
+        if selected_sport_type:
+            prompt = prompt + f'I want only {selected_sport_type} program. Give me the program only for {num_days} days.'
         cevap = ask(prompt)
         st.write(cevap)
 
-selected_search = dictionary['sport_type'].split()[0]
 if selected_search != 'Home':
     st.write('**Find closest sport center:**')
     column_1, column_2, column_3 = st.columns(3, gap='medium')
@@ -64,8 +70,7 @@ if selected_search != 'Home':
 
     query = selected_city + selected_county + selected_mahalle
 
-    if selected_search == 'Outdoor':
-        selected_search = st.selectbox('spor place', ['Basketbol', 'Yüzme havuzu', 'Futbol', 'Tenis', 'Yelken', 'Koşu'])
+    
 
     if st.button('Show'):
         url = "https://maps.googleapis.com/maps/api/place/findplacefromtext/json"
@@ -83,7 +88,7 @@ if selected_search != 'Home':
         url_near = "https://maps.googleapis.com/maps/api/place/nearbysearch/json"
         params_near = {
             'location': f"{lat} {lng}",
-            'keyword': selected_search,
+            'keyword': selected_sport_type,
             'type': 'gym|health|establishment',
             'rankby': 'distance',
             'key': api_key
