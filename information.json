@@ -1,13 +1,14 @@
 {
-    "age": 44,
-    "weight": 84.0,
-    "height": 178,
-    "gender": "Male",
-    "sport_type": "Home Workout \ud83e\uddd8",
+    "age": 24,
+    "weight": 70.0,
+    "height": 185,
+    "gender": "Female",
+    "sport_type": "Gym Workout \ud83c\udfcb\ufe0f ",
     "goal": [
-        "Lose Weight",
+        "Gain Muscle ",
         "Improve Flexibility"
     ],
     "health_problems": "",
-    "additional_info": "I want to lose 6 kilos."
+    "additional_info": "",
+    "level_type": "Intermediate (It has always been sports in some way in my life. I exercise, although not regularly.) "
 }

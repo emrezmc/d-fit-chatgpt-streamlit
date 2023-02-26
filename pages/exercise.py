@@ -1,7 +1,8 @@
 import json
 import streamlit as st
-from utils import ask, findplace_text, near_search, get_detail_place, main_button, diet_button
+from utils import ask, findplace_text, near_search, get_detail_place, main_button, diet_button,load_lottieurl
 import pandas as pd
+from streamlit_lottie import st_lottie
 
 st.set_page_config(
     page_title="D-Fit",
@@ -14,8 +15,21 @@ loc_data = pd.read_csv('il_ilce.csv')
 with open('information.json', 'r') as openfile:
     dictionary = json.load(openfile)
 
-st.image('images/bmi.png')
+
 bmi = dictionary['weight'] / (dictionary['height'] / 100) ** 2
+
+
+navi_url = "https://assets6.lottiefiles.com/private_files/lf30_A6ckDx.json"
+
+st.markdown("<h1 style='text-align: center; color: blue;'> BMI & Exercise Plan</h1>", unsafe_allow_html=True)
+
+if  dictionary["gender"] == "Male":
+    st.image('images/bmi_man.jpg')
+else:
+    st.image('images/bmi_woman.jpg')
+
+
+
 st.write("Your bmi is " + str(round(bmi, 2)))
 
 col1, col2, col3 = st.columns(3)
@@ -29,10 +43,10 @@ if selected_search == 'Outdoor':
         selected_sport_type = st.multiselect('Sport type', ['Basketball', 'Swimming', 'Soccer', 'Tennis', 'Sailing', 'Running'])
 
 if st.button('Give my exercise plan'):
-    with st.spinner(text="In progress..."):
+    with st.spinner(text="Creating your exercise plan..."):
         goal = " and ".join(dictionary['goal'])
         prompt = f"""
-                Can you give me workout program that monday to sunday with rest days for {dictionary['sport_type']},
+                Can you give me workout program table that monday to sunday with rest days for {dictionary['sport_type']},
                 I'm {dictionary['level_type']}  give reps with their set please.
                 Please just give me the program, not write me anything without program.
                 Paying attention to regional muscle groups (just working one major muscle and one minor muscle group per day)
@@ -53,6 +67,11 @@ if st.button('Give my exercise plan'):
 
 if selected_search != 'Home':
     st.write('**Find closest sport center:**')
+
+
+    navi = load_lottieurl(navi_url)
+    st_lottie(navi, key="navi", height= 400, width=600)
+
     column_1, column_2, column_3 = st.columns(3, gap='medium')
     with column_1:
         sehirler = loc_data.il.unique().tolist()

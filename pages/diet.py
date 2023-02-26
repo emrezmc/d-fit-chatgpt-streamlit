@@ -14,7 +14,7 @@ st.set_page_config(
 
 )
 def get_plan(prompt):
-    with st.spinner('Loading...'):
+    with st.spinner('Your diet plan is creating...'):
             cevap = ask(prompt)
             cevap = "Monday" + cevap.split('Monday',1)[1]
             menu_dict = {}
@@ -50,8 +50,8 @@ if dictionary['additional_info'] != "":
 if dictionary['health_problems'] != "":
      prompt += f"I have some health problems like {dictionary['health_problems']}"
 
-st.write(dictionary)
-st.write(prompt)
+#st.write(dictionary)
+#st.write(prompt)
 st_lottie(lottie_diet, key="diet", height= 600, width=800)
 
 get_plan(prompt)
