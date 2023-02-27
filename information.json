@@ -1,11 +1,10 @@
 {
-    "age": 24,
-    "weight": 70.0,
-    "height": 185,
-    "gender": "Female",
+    "age": 25,
+    "weight": 50.0,
+    "height": 160,
+    "gender": "Male",
     "sport_type": "Gym Workout \ud83c\udfcb\ufe0f ",
     "goal": [
-        "Gain Muscle ",
         "Improve Flexibility"
     ],
     "health_problems": "",

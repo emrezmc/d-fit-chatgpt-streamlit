@@ -14,7 +14,7 @@ st.set_page_config(
 
 )
 def get_plan(prompt):
-    with st.spinner('Your diet plan is creating...'):
+    with st.spinner('Creating your diet plan...'):
             cevap = ask(prompt)
             cevap = "Monday" + cevap.split('Monday',1)[1]
             menu_dict = {}

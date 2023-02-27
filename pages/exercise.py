@@ -24,9 +24,9 @@ navi_url = "https://assets6.lottiefiles.com/private_files/lf30_A6ckDx.json"
 st.markdown("<h1 style='text-align: center; color: blue;'> BMI & Exercise Plan</h1>", unsafe_allow_html=True)
 
 if  dictionary["gender"] == "Male":
-    st.image('images/bmi_man.jpg')
+    st.image('images/bmi_man.jpg', width=700)
 else:
-    st.image('images/bmi_woman.jpg')
+    st.image('images/bmi_woman.jpg', width=700)
 
 
 
@@ -48,7 +48,7 @@ if st.button('Give my exercise plan'):
         prompt = f"""
                 Can you give me workout program table that monday to sunday with rest days for {dictionary['sport_type']},
                 I'm {dictionary['level_type']}  give reps with their set please.
-                Please just give me the program, not write me anything without program.
+                Please just give me the {num_days} days program, not write me anything without program.
                 Paying attention to regional muscle groups (just working one major muscle and one minor muscle group per day)
                 Each day begins with warm-up exercises. 
                 I want to workout {num_days} days in a week. 
@@ -59,6 +59,7 @@ if st.button('Give my exercise plan'):
                 I want to {goal}.
                 I have some health problems like {dictionary['health_problems']}.
                 In addition, {dictionary['additional_info']}.
+                As I said earlier, I want {num_days} days workout plan, so give me exactly the same number of workout routine please.
                 """
         if selected_sport_type:
             prompt = prompt + f'I want only {selected_sport_type} program. Give me the program only for {num_days} days.'
