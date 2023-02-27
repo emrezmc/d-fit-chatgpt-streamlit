@@ -52,6 +52,6 @@ if dictionary['health_problems'] != "":
 
 #st.write(dictionary)
 #st.write(prompt)
-st_lottie(lottie_diet, key="diet", height= 600, width=800)
+st_lottie(lottie_diet, key="diet", height= 550, width=750)
 
 get_plan(prompt)
