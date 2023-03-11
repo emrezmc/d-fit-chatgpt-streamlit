@@ -37,15 +37,15 @@ def write_json(dictionary):
 
 def ask(question):
     openai.api_key = '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'
-    response = openai.Completion.create(
-        prompt=question,
-        model="text-davinci-003",
+    response = openai.ChatCompletion.create(
+        messages=[{"role": "user", "content": question}],
+        model='gpt-3.5-turbo',
         temperature=0.2,
         max_tokens=2000,
         top_p=1.0,
         frequency_penalty=0.0,
         presence_penalty=0.0)
-    answer = response.choices[0].text.strip()
+    answer = response.choices[0].message.content.strip()
     return answer
 
 def nav_page(page_name, timeout_secs=3):

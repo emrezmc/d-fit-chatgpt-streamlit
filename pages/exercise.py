@@ -1,8 +1,9 @@
 import json
 import streamlit as st
-from utils import ask, findplace_text, near_search, get_detail_place, main_button, diet_button,load_lottieurl
+from utils import ask, findplace_text, near_search, get_detail_place, main_button, diet_button, load_lottieurl
 import pandas as pd
 from streamlit_lottie import st_lottie
+import re
 
 st.set_page_config(
     page_title="D-Fit",
@@ -17,7 +18,6 @@ with open('information.json', 'r') as openfile:
 
 with open('images/moves_with_link.json', 'r') as openfile:
     moves_dict = json.load(openfile)
-
 
 bmi = dictionary['weight'] / (dictionary['height'] / 100) ** 2
 
@@ -87,8 +87,8 @@ if st.button('Give my exercise plan'):
 
         cevap = ask(prompt)
         for word in moves_dict.keys(): 
-             if word in cevap:
-                cevap = cevap.replace(word, f"[{word}]("+moves_dict[word]+")")
+             if word.lower() in cevap.lower():
+                cevap = re.sub(word, f"[{word}]("+moves_dict[word]+")", cevap,flags=re.IGNORECASE)
                 #"[Linke tikla](" + link_+ ")"
         st.write(cevap)
 
