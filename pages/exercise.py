@@ -15,6 +15,9 @@ loc_data = pd.read_csv('il_ilce.csv')
 with open('information.json', 'r') as openfile:
     dictionary = json.load(openfile)
 
+with open('images/moves_with_link.json', 'r') as openfile:
+    moves_dict = json.load(openfile)
+
 
 bmi = dictionary['weight'] / (dictionary['height'] / 100) ** 2
 
@@ -83,7 +86,13 @@ if st.button('Give my exercise plan'):
             prompt = prompt + f'I want only {selected_sport_type} program.'
 
         cevap = ask(prompt)
+        for word in moves_dict.keys(): 
+             if word in cevap:
+                cevap = cevap.replace(word, f"[{word}]("+moves_dict[word]+")")
+                #"[Linke tikla](" + link_+ ")"
         st.write(cevap)
+
+
 
 st.write('&nbsp;',unsafe_allow_html=True)
 
@@ -115,8 +124,8 @@ if selected_search != 'Home':
                 st.write(res["name"])
             with column_2:
                 st.write(map_links[i])
-            with column_3:
-                st.write(res["rating"])
+            #with column_3:
+                #st.write(res["rating"])
     
     st_lottie(navi_json, key="navi", height= 200, width=200)
 
@@ -126,3 +135,6 @@ with col_1:
     main_button()
 with col_2:
     diet_button()
+
+
+

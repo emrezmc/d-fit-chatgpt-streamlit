@@ -3,11 +3,12 @@
     "weight": 50.0,
     "height": 160,
     "gender": "Female",
-    "sport_type": "Gym Workout \ud83c\udfcb\ufe0f ",
+    "sport_type": "Outdoor Workout \ud83d\udea3\u200d\u2640\ufe0f \ud83c\udfca",
     "goal": [
+        "Lose Weight",
         "Improve Flexibility"
     ],
-    "health_problems": "",
-    "additional_info": "",
-    "level_type": "Intermediate (It has always been sports in some way in my life. I exercise, although not regularly.) "
+    "health_problems": "I have gluten intolarance.",
+    "additional_info": "I want to lose 5 kilos",
+    "level_type": "Beginner  (I just started doing sports or haven't been doing sports for a long time and I don't have an athlete background.)"
 }
