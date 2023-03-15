@@ -26,28 +26,29 @@ bmi = dictionary['weight'] / (dictionary['height'] / 100) ** 2
 with open('images/navi.json', 'r') as openfile:
     navi_json = json.load(openfile)
 
-st.markdown("<h1 style='text-align: left; color: blue;'> BMI & Exercise Plan</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center;'> BMI & Exercise Plan</h1>", unsafe_allow_html=True)
 
-if  dictionary["gender"] == "Male":
-    st.image('images/bmi_man.jpg', width=700)
-else:
-    st.image('images/bmi_woman.jpg', width=700)
+column1, column2, column3,c4,c5 = st.columns(5)
+with column2:
+    if  dictionary["gender"] == "Male":
+        st.image('images/bmi_man.jpg', width=650)
+    else:
+        st.image('images/bmi_woman.jpg', width=650)
 
-
-if bmi < 18.5:
-    st.write(f'**Your BMI is: {str(round(bmi, 2))}. Your BMI is underweight.**')
-elif (18.5 <= bmi < 25):
-    st.write(f'**Your BMI is: {str(round(bmi, 2))}. Your BMI is normal.**')
-elif (25 <= bmi < 30):
-    st.write(f'**Your BMI is: {str(round(bmi, 2))}. Your BMI is overweight.**')
-elif (30 <= bmi < 35):
-    st.write(f'**Your BMI is: {str(round(bmi, 2))}. Your BMI is obese.**')
-else:
-    st.write(f'**Your BMI is: {str(round(bmi, 2))}. Your BMI is extremely obese.**')
-
+c1, c2, c3 = st.columns(3)
+with c2:
+    if bmi < 18.5:
+        st.write(f'**Your BMI is: {str(round(bmi, 2))}. Your BMI is underweight.**')
+    elif (18.5 <= bmi < 25):
+        st.write(f'**Your BMI is: {str(round(bmi, 2))}. Your BMI is normal.**')
+    elif (25 <= bmi < 30):
+        st.write(f'**Your BMI is: {str(round(bmi, 2))}. Your BMI is overweight.**')
+    elif (30 <= bmi < 35):
+        st.write(f'**Your BMI is: {str(round(bmi, 2))}. Your BMI is obese.**')
+    else:
+        st.write(f'**Your BMI is: {str(round(bmi, 2))}. Your BMI is extremely obese.**')
 
 st.write('&nbsp;',unsafe_allow_html=True)
-
 
 col1, col2, col3 = st.columns(3)
 with col1:
@@ -93,7 +94,6 @@ if st.button('Give my exercise plan'):
         st.write(cevap)
 
 
-
 st.write('&nbsp;',unsafe_allow_html=True)
 
 if selected_search != 'Home':
@@ -135,6 +135,3 @@ with col_1:
     main_button()
 with col_2:
     diet_button()
-
-
-

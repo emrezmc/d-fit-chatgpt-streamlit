@@ -1,14 +1,14 @@
 {
-    "age": 25,
-    "weight": 50.0,
-    "height": 160,
-    "gender": "Female",
+    "age": 23,
+    "weight": 80.0,
+    "height": 183,
+    "gender": "Male",
     "sport_type": "Gym Workout \ud83c\udfcb\ufe0f ",
     "goal": [
         "Lose Weight",
-        "Improve Flexibility"
+        "Gain Muscle "
     ],
-    "health_problems": "I have gluten intolarance.",
-    "additional_info": "I want to lose 5 kilos",
+    "health_problems": "I have gluten intolorance.",
+    "additional_info": "I want to lose 5 kg.",
     "level_type": "Beginner  (I just started doing sports or haven't been doing sports for a long time and I don't have an athlete background.)"
 }
