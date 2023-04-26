@@ -39,7 +39,7 @@ def ask(question):
     openai.api_key = 'YOUR-OPENAI-KEY'
     response = openai.ChatCompletion.create(
         messages=[{"role": "user", "content": question}],
-        model='gpt-3.5-turbo',
+        model='gpt-4', ##you can change the model whatever you want to use
         temperature=0.2,
         max_tokens=2000,
         top_p=1.0,
