@@ -1,2 +1,2 @@
-# d-fit-chatgpt-streamlit
+# D-Fit
 readme deneme
