@@ -1,2 +1,2 @@
 # D-Fit
-readme deneme
+A fitness and healty diet program generator with OpenAI GPT-3.5 Turbo. 
