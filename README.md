@@ -1,5 +1,8 @@
 # D-Fit 
-This is a chatbot application that helps users with their fitness goals by generating personalized diet and fitness programs based on their inputs. The application is built using ChatGPT, a large language model trained by OpenAI that can generate human-like responses to natural language inputs and Streamlit.
+This is a chatbot application that helps users with their fitness goals by generating personalized diet and fitness programs based on their inputs. The application is built using ChatGPT, a large language model trained by OpenAI that can generate human-like responses to natural language inputs.
+
+![image](https://user-images.githubusercontent.com/61943680/234573625-85588e59-eae7-4221-b849-c2e54f288b8f.png)
+
 
 # Getting Started
 To use the fitness helper chatbot, you will need to have access to an internet-connected device with a web browser. Simply navigate to the website where the chatbot is hosted and begin chatting with the bot. The chatbot will ask you a series of questions about your fitness goals, dietary preferences, and current fitness level in order to generate a personalized program for you.
