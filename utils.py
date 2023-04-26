@@ -36,7 +36,7 @@ def write_json(dictionary):
         outfile.write(json_object)
 
 def ask(question):
-    openai.api_key = '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'
+    openai.api_key = 'YOUR-OPENAI-KEY'
     response = openai.ChatCompletion.create(
         messages=[{"role": "user", "content": question}],
         model='gpt-3.5-turbo',
